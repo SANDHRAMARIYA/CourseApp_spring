@@ -1,7 +1,11 @@
 package com.nestdigital.CourseApp.controller;
 
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @RestController
 public class CourseController {
@@ -11,19 +15,27 @@ public class CourseController {
     {
         return "Welcome to our homepage";
     }
-    @GetMapping("/student")
-    public String StudentDetails()
-    {
-        return "Enter the details of the students";
-    }
+
     @GetMapping("/course")
     public String CourseReg()
     {
         return "Register your Course with full details";
     }
-    @GetMapping("/search")
-    public String SearchCourse()
+    @PostMapping("/read")
+    public String Readpage()
     {
-        return "Search your Details";
+        return "Read Page";
+    }
+    @GetMapping("/viewall")
+    public List view()
+    {
+        List<String> mylist=new ArrayList<>();
+        mylist.add("{'name':'Anna','age':20}");
+        return mylist;
+    }
+    @GetMapping("/student")
+    public String Student()
+    {
+        return "Maria";
     }
 }
